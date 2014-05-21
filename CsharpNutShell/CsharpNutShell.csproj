@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LanguageBasics\ClassBasics.cs" />
+    <Compile Include="LanguageBasics\ClassConstruct.cs" />
+    <Compile Include="LanguageBasics\NameSpaces.cs" />
     <Compile Include="LanguageBasics\StackAndHeap.cs" />
     <Compile Include="LanguageBasics\StringCharacters.cs" />
     <Compile Include="LanguageBasics\StructClass.cs" />
