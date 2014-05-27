@@ -99,5 +99,5 @@ Alternatives to interface reimplementation
 
 Enum as int 0..*
 Type-Safety Issues - enum can have bigger number than it has so else{} on enum isnt good option
-
+Enum.IsDefined
 */
