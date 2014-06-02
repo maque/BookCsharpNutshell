@@ -1,0 +1,105 @@
+int x= 9;
+object ob = x;
+int y = (int) ob;
+
+long z = (long) ob; //invalidCastException
+long z = (long) (int) ob;
+
+object o = "a";
+int z = (int) o; //Runtime fial
+
+• Call GetType on the instance.
+• Use the typeof operator on a type name.
+GetType is evaluated at runtime; typeof is evaluated statically at compile time (when
+generic type parameters are involved, it’s resolved by the just-in-time compiler).
+System.Type has properties for such things as the type’s name, assembly, base type,
+and so on.
+
+Point p = new Point();
+Console.WriteLine (p.GetType().Name); // Point
+Console.WriteLine (typeof (Point).Name); // Point
+Console.WriteLine (p.GetType() == typeof(Point)); // True
+Console.WriteLine (p.X.GetType().Name); // Int32
+Console.WriteLine (p.Y.GetType().FullName); // System.Int32
+
+In advanced scenarios, you can expose internal members to other friend assemblies
+by adding the System.Runtime.CompilerServices.InternalsVisibleTo assembly attribute,
+specifying the name of the friend assembly as follows:
+[assembly: InternalsVisibleTo ("Friend")]
+If the friend assembly has a strong name (see Chapter 18), you must specify its full
+160-byte public key:
+[assembly: InternalsVisibleTo ("StrongFriend, PublicKey=0024f000048c...")]
+You can extract the full public key from a strongly named assembly with a LINQ
+query (we explain LINQ in detail in Chapter 8):
+string key = string.Join ("",
+Assembly.GetExecutingAssembly().GetName().GetPublicKey()
+
+Restrictions on Access Modifiers
+internal class A {}
+public class B : A {} // Error
+
+public interface IEnumerator
+{
+bool MoveNext();
+object Current { get; }
+void Reset();
+}
+You can implicitly cast an object to any interface that it implements.
+
+An implicitly implemented interface member is, by default, sealed. It must be
+marked virtual or abstract in the base class in order to be overridden.
+
+Reimplementing an Interface in a Subclass (s99)
+
+Alternatives to interface reimplementation (s100)
+Writing a Class Versus an Interface
+
+Enum Type safety issues ( else ); !decimal.TryParse(e.ToString(), out d);
+
+Nested types (acces rights)
+
+Generics: default(T);
+Type a1 = typeof (A<>); // Unbound type (notice no type arguments).
+Type a2 = typeof (A<,>); // Use commas to indicate multiple type args.
+
+where T : base-class // Base-class constraint
+where T : interface // Interface constraint
+where T : class // Reference-type constraint
+where T : struct // Value-type constraint (excludes Nullable types)
+where T : new() // Parameterless constructor constraint
+where U : T // Naked type constraint
+
+Subclassing Generic Types
+class Balloon : IEquatable<Balloon>
+Static data unique for each type
+
+explicit cast won't work, use "as"
+
+(StringBuilder) arg //where T arg FAIL
+arg as String
+or (StringBuilder) (object) arg
+
+*Covariance*
+generic classes not covariant (not able to cast child to parent)
+arrays are, generic interfaces also (s116)
+
+Delegates
+d = s1+s2;
+d -= s1
+delegates can have generic types
+
+delegate TResult Func <out TResult> ();
+delegate TResult Func <in T, out TResult> (T arg);
+delegate TResult Func <in T1, in T2, out TResult> (T1 arg1, T2 arg2);
+... and so on, up to T16
+delegate void Action ();
+delegate void Action <in T> (T arg);
+delegate void Action <in T1, in T2> (T1 arg1, T2 arg2);
+
+delegates are incompatbilie even with same signatures
+delegates can be replaced by interface in some cases
+
+delegate (string) can have method a(object) //string is an object
+
+Events(elalber) s (128)
+
