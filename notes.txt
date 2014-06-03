@@ -102,4 +102,7 @@ delegates can be replaced by interface in some cases
 delegate (string) can have method a(object) //string is an object
 
 Events(elalber) s (128)
+Event prevents from replacing or clear subscribers
+
+
 
