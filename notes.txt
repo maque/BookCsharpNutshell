@@ -104,5 +104,43 @@ delegate (string) can have method a(object) //string is an object
 Events(elalber) s (128)
 Event prevents from replacing or clear subscribers
 
+Lambda
+(parameters) => expresion-or-statement-block
+evaluate when invokate:
+	x=2
+	func<int,int> a = x=>x*x
+	x=3
+	a(x) //9 not 4
+	
+x is captured and will be used in each expresssion
 
+
+
+Using(var x=newX()){}
+is quuivalent to
+var x=nwe X()
+try{...}finaly{if(x!=null)((IDIsposable)x).Dispose());}
+
+throw; //re-throw
+
+IEnumerable (getEnumerator( S.148)
+
+yield return ..
+yield break
+
+IEnumerable<string> Foo()
+{
+try { yield return "One"; } // Illegal
+catch { ... }
+}
+IEnumerable<string> Foo()
+{
+try { yield return "One"; } // OK
+finally { ... }
+}
+
+Composing sequences (yield)
+
+Nullable
+operator lifting
 
